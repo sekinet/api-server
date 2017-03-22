@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, jsonify, make_response
+import time
+
+DELAY_TIME=1
 
 api = Flask(__name__)
 
@@ -10,6 +13,7 @@ def get_virtual_network():
         "version":2
         }
 
+    time.sleep(DELAY_TIME)
     return make_response(jsonify(result))
 
 @api.errorhandler(404)
